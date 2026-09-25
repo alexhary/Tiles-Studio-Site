@@ -84,8 +84,8 @@ body {
 }
 
 .scene {
-  width: 59.5%;
-  max-width: 59.5%;
+  width: 68.425%;
+  max-width: 68.425%;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   position: relative;
@@ -165,8 +165,8 @@ body {
 .arrow:hover img { filter: brightness(0) invert(1); }
 .arrow:active { opacity: .78; }
 /* Cube is smaller now, so keep the arrows visually balanced a bit outside its sides. */
-.arrow-left { left: calc(20.25% - 108px); }
-.arrow-right { right: calc(20.25% - 108px); }
+.arrow-left { left: calc(15.7875% - 114px); }
+.arrow-right { right: calc(15.7875% - 114px); }
 .arrow-right img { transform: scaleX(-1); }
 
 .copy {
@@ -207,8 +207,8 @@ body {
 
   /* Smaller cube on phones so a true 3D turn has room to open. */
   .scene {
-    width: 50vw;
-    max-width: 50vw;
+    width: 57.5vw;
+    max-width: 57.5vw;
   }
   .arrow-left { left: -6vw; }
   .arrow-right { right: -6vw; }

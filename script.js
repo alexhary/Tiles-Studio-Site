@@ -1,9 +1,15 @@
 const slides = [
-  { src: 'assets/slide-01.jpg', alt: 'Custom glazed ceramic tiles' },
-  { src: 'assets/slide-02.jpg', alt: 'Geometric 3D wall panels' },
-  { src: 'assets/slide-03.jpg', alt: 'White sculptural relief wall panels' },
-  { src: 'assets/slide-04.jpg', alt: 'Blue and white custom ceramic tiles' },
-  { src: 'assets/slide-05.jpg', alt: 'Layered blue ceramic surface' }
+  { src: 'assets/slide-01-magenta.webp', alt: 'Glossy magenta sculptural tile surface' },
+  { src: 'assets/slide-02-beige-grid.webp', alt: 'Glossy square ceramic tile composition' },
+  { src: 'assets/slide-03-white-wave.webp', alt: 'White flowing relief wall surface' },
+  { src: 'assets/slide-04-blue-white-wave.webp', alt: 'Blue and white sculptural ceramic tiles' },
+  { src: 'assets/slide-05-red-triangles.webp', alt: 'Red geometric 3D ceramic tiles' },
+  { src: 'assets/slide-06-terra.webp', alt: 'Terracotta relief ceramic surface' },
+  { src: 'assets/slide-07-white-bubbles.webp', alt: 'White glossy pebble-like wall texture' },
+  { src: 'assets/slide-08-gold-rings.webp', alt: 'Golden circular decorative screen' },
+  { src: 'assets/slide-09-lattice.webp', alt: 'Organic perforated architectural divider' },
+  { src: 'assets/slide-10-gold-bubbles.webp', alt: 'Gold pebble-like luxury wall panel' },
+  { src: 'assets/slide-11-white-droplets.webp', alt: 'White glossy droplet tile pattern' }
 ];
 
 const scene = document.getElementById('scene');
