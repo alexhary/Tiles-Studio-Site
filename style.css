@@ -1,0 +1,232 @@
+:root {
+  --bg: #181818;
+  --text: #d2d2d2;
+  --muted: #9e9e9e;
+  --cube-half: 250px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Quicksand", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 320;
+}
+
+/* Desktop: one third of the viewport width. */
+.site-shell {
+  width: 33.333vw;
+  margin: 0 auto;
+  padding: 14px 0 70px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--muted);
+}
+.top-nav a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.top-nav a:hover { color: #fff; }
+.lang {
+  border: 0;
+  background: transparent;
+  padding: 0 0 0 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.brand {
+  text-align: center;
+  padding: 40px 0 48px;
+}
+.logo {
+  font-size: clamp(28px, 2.55vw, 47px);
+  line-height: 1;
+  letter-spacing: .16em;
+  font-weight: 300;
+  white-space: nowrap;
+}
+.tagline {
+  margin-top: 12px;
+  font-size: clamp(11px, .88vw, 17px);
+  letter-spacing: .24em;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.hero-cube {
+  position: relative;
+  width: 100%;
+}
+
+/* The rotating object may project outside its square while turning, but all
+   site typography stays visually above it. */
+.scene {
+  z-index: 1;
+}
+.top-nav,
+.brand,
+.copy {
+  position: relative;
+  z-index: 10;
+}
+
+.scene {
+  width: 59.5%;
+  max-width: 59.5%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  position: relative;
+  perspective: 6000px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+}
+
+.turner,
+.cube {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+}
+
+.turner { will-change: transform; }
+.cube { will-change: transform; }
+
+.face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.face-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-origin: 50% 50%;
+}
+
+.face-front  { transform: translateZ(var(--cube-half)); }
+.face-right  { transform: rotateY(90deg) translateZ(var(--cube-half)); }
+.face-back   { transform: rotateY(180deg) translateZ(var(--cube-half)); }
+.face-left   { transform: rotateY(-90deg) translateZ(var(--cube-half)); }
+.face-top    { transform: rotateX(90deg) translateZ(var(--cube-half)); }
+.face-bottom { transform: rotateX(-90deg) translateZ(var(--cube-half)); }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 42px;
+  height: 78px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: .56;
+  transition: opacity .28s ease;
+}
+.arrow img {
+  display: block;
+  width: 27px;
+  height: 54px;
+  margin: auto;
+  object-fit: contain;
+  pointer-events: none;
+  transition: filter .28s ease, opacity .28s ease;
+}
+.arrow:hover { opacity: 1; }
+.arrow:hover img { filter: brightness(0) invert(1); }
+.arrow:active { opacity: .78; }
+/* Cube is smaller now, so keep the arrows visually balanced a bit outside its sides. */
+.arrow-left { left: calc(20.25% - 108px); }
+.arrow-right { right: calc(20.25% - 108px); }
+.arrow-right img { transform: scaleX(-1); }
+
+.copy {
+  padding-top: 36px;
+  text-align: center;
+}
+.copy h1 {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: .01em;
+  color: #ededed;
+}
+.copy p {
+  margin: 0 auto 13px;
+  max-width: 92%;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #9f9f9f;
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: 88vw;
+    padding-top: 12px;
+  }
+  .top-nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+  .top-nav::-webkit-scrollbar { display: none; }
+  .brand { padding: 34px 0 36px; }
+  .logo { font-size: clamp(29px, 8vw, 44px); }
+  .tagline { font-size: 11px; letter-spacing: .18em; }
+
+  /* Smaller cube on phones so a true 3D turn has room to open. */
+  .scene {
+    width: 50vw;
+    max-width: 50vw;
+  }
+  .arrow-left { left: -6vw; }
+  .arrow-right { right: -6vw; }
+  .arrow {
+    width: 34px;
+    height: 64px;
+  }
+  .arrow img {
+    width: 21px;
+    height: 45px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .scene { cursor: pointer; }
+}
