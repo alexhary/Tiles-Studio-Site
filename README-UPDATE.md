@@ -1,23 +1,30 @@
-# Tiles Studio — bilingual website update
+# Tiles Studio — bilingual static website
 
-This archive contains the complete static website and its original images.
+The root `index.html` is the full Spanish page. `en/index.html` is the fully translated English page.
 
-## Deployment
-Deploy the repository root as a static site to Vercel. No dependencies or build command are required.
+## Local preview
 
-## Opening the ZIP locally
-Extract the ZIP, then double-click **index.html** in the root folder (not the es/ or en/ directory). The site redirects to the appropriate language HTML file. You can also open **es/index.html** or **en/index.html** directly. The language links work both from local files and on Vercel.
+1. Extract the ZIP.
+2. Double-click **index.html** at the repository root for Spanish.
+3. Click **EN** in the page to open the English version.
+4. Click **ES** to return to the Spanish version.
 
-## Routes
-- `/`: chooses ES for Spanish/Catalan browser locale; EN otherwise; honours saved manual choice. Has clickable fallback links with JavaScript disabled.
-- `/en/`: full English page (indexable and shareable).
-- `/es/`: full Spanish page (indexable and shareable).
+Open the actual HTML files, not their folders. Switching works over `file://` as well as after deployment.
 
-## Changes
-- Removed the old navigation (non-existing anchor targets).
-- Added a compact EN / ES language switch and email link.
-- Added per-language canonical/hreflang, Open Graph/Twitter tags, JSON-LD, robots.txt and sitemap.xml.
-- Deferred loading the additional five gallery images until after page load and idle time, retaining the 3D cube and all 11 original images.
-- Images, CSS and JavaScript remain shared between both language pages.
+## Production addresses
 
-The GitHub feature branch contains these changes without publishing them to the production/main branch.
+- Spanish: https://tiles.studio/ (canonical)
+- English: https://tiles.studio/en/ (canonical)
+
+Each page has its own title, meta description, Open Graph metadata and language annotation. The sitemap lists both pages and reciprocal `hreflang` links. No redirect or automatic language selection is used.
+
+## Site behavior
+
+- One-page design, no top navigation menu
+- Compact ES / EN language links
+- Functional 3D cube with all 11 original images and bilingual image descriptions
+- Email contact: tilesstudio.info@gmail.com
+- Deferred preloading of offscreen gallery images
+- Static HTML/CSS/JS; no dependencies or build command
+
+The ZIP contains all original assets. This GitHub feature branch is separate from the live production branch `main`.
