@@ -20,31 +20,9 @@ body {
 /* Desktop: one third of the viewport width. */
 .site-shell {
   width: 33.333vw;
+  position: relative;
   margin: 0 auto;
   padding: 14px 0 70px;
-}
-
-.top-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  white-space: nowrap;
-  font-size: 11px;
-  color: var(--muted);
-}
-.top-nav a {
-  color: inherit;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-.top-nav a:hover { color: #fff; }
-.lang {
-  border: 0;
-  background: transparent;
-  padding: 0 0 0 6px;
-  cursor: pointer;
-  font-size: 13px;
 }
 
 .brand {
@@ -76,9 +54,10 @@ body {
 .scene {
   z-index: 1;
 }
-.top-nav,
+.language-switch,
 .brand,
-.copy {
+.copy, 
+.contact {
   position: relative;
   z-index: 10;
 }
@@ -194,14 +173,7 @@ body {
     width: 88vw;
     padding-top: 12px;
   }
-  .top-nav {
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 5px;
-    scrollbar-width: none;
-  }
-  .top-nav::-webkit-scrollbar { display: none; }
-  .brand { padding: 34px 0 36px; }
+    .brand { padding: 34px 0 36px; }
   .logo { font-size: clamp(29px, 8vw, 44px); }
   .tagline { font-size: 11px; letter-spacing: .18em; }
 
@@ -230,3 +202,13 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .scene { cursor: pointer; }
 }
+
+/* Minimal bilingual switch and contact footer */
+.language-switch { position: absolute; top: 12px; right: 0; display: flex; align-items: center; gap: 8px; font: 400 11px/1.4 Quicksand, Arial, sans-serif; letter-spacing: .06em; color: #777; }
+.language-switch a { color: #888; text-decoration: none; transition: color .18s ease; }
+.language-switch a:hover, .language-switch a[aria-current="page"] { color: #ededed; }
+.language-switch a:focus-visible, .contact a:focus-visible { outline: 2px solid #ededed; outline-offset: 4px; }
+.contact { text-align: center; margin-top: 38px; font-size: 11px; letter-spacing: .16em; }
+.contact a { color: #b8b8b8; text-decoration: none; transition: color .18s ease; }
+.contact a:hover { color: #fff; }
+@media (max-width: 760px) { .language-switch { top: 12px; right: 0; } .contact { margin-top: 30px; } }
