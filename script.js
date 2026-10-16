@@ -1,18 +1,18 @@
 const ASSET_BASE = document.currentScript?.getAttribute('data-assets') || 'assets/';
 
 const slides = [
-  { src: 'assets/slide-01-magenta.webp', alt: 'Glossy magenta sculptural tile surface' },
-  { src: 'assets/slide-02-beige-grid.webp', alt: 'Glossy square ceramic tile composition' },
-  { src: 'assets/slide-03-white-wave.webp', alt: 'White flowing relief wall surface' },
-  { src: 'assets/slide-04-blue-white-wave.webp', alt: 'Blue and white sculptural ceramic tiles' },
-  { src: 'assets/slide-05-red-triangles.webp', alt: 'Red geometric 3D ceramic tiles' },
-  { src: 'assets/slide-06-terra.webp', alt: 'Terracotta relief ceramic surface' },
-  { src: 'assets/slide-07-white-bubbles.webp', alt: 'White glossy pebble-like wall texture' },
-  { src: 'assets/slide-08-gold-rings.webp', alt: 'Golden circular decorative screen' },
-  { src: 'assets/slide-09-lattice.webp', alt: 'Organic perforated architectural divider' },
-  { src: 'assets/slide-10-gold-bubbles.webp', alt: 'Gold pebble-like luxury wall panel' },
-  { src: 'assets/slide-11-white-droplets.webp', alt: 'White glossy droplet tile pattern' }
-].map(slide => ({ ...slide, src: ASSET_BASE + slide.src.slice('assets/'.length) }));
+  { src: 'assets/slide-01-magenta.webp', alt: 'Glossy magenta sculptural tile surface', altEs: 'Revestimiento escultórico brillante de color magenta' },
+  { src: 'assets/slide-02-beige-grid.webp', alt: 'Glossy square ceramic tile composition', altEs: 'Composición de baldosas cerámicas cuadradas brillantes' },
+  { src: 'assets/slide-03-white-wave.webp', alt: 'White flowing relief wall surface', altEs: 'Revestimiento blanco con relieve ondulado' },
+  { src: 'assets/slide-04-blue-white-wave.webp', alt: 'Blue and white sculptural ceramic tiles', altEs: 'Azulejos cerámicos escultóricos en azul y blanco' },
+  { src: 'assets/slide-05-red-triangles.webp', alt: 'Red geometric 3D ceramic tiles', altEs: 'Azulejos cerámicos 3D de geometría roja' },
+  { src: 'assets/slide-06-terra.webp', alt: 'Terracotta relief ceramic surface', altEs: 'Superficie cerámica terracota con relieve' },
+  { src: 'assets/slide-07-white-bubbles.webp', alt: 'White glossy pebble-like wall texture', altEs: 'Superficie decorativa blanca con relieves orgánicos' },
+  { src: 'assets/slide-08-gold-rings.webp', alt: 'Golden circular decorative screen', altEs: 'Celosía decorativa con anillos dorados' },
+  { src: 'assets/slide-09-lattice.webp', alt: 'Organic perforated architectural divider', altEs: 'Separador arquitectónico orgánico perforado' },
+  { src: 'assets/slide-10-gold-bubbles.webp', alt: 'Gold pebble-like luxury wall panel', altEs: 'Panel mural dorado con formas orgánicas' },
+  { src: 'assets/slide-11-white-droplets.webp', alt: 'White glossy droplet tile pattern', altEs: 'Patrón decorativo blanco en relieve con gotas' }
+].map(slide => ({ ...slide, src: ASSET_BASE + slide.src.slice('assets/'.length), alt: document.documentElement.lang === 'es' ? slide.altEs : slide.alt }));
 
 const scene = document.getElementById('scene');
 const turner = document.getElementById('turner');
@@ -67,12 +67,7 @@ window.addEventListener('load', () => {
   schedule();
 }, { once: true });
 
-// Remember a manual language choice for visits to the site root.
-document.querySelectorAll('.language-switch [data-language]').forEach(link => {
-  link.addEventListener('click', () => {
-    try { localStorage.setItem('tiles-studio-language', link.dataset.language); } catch (_) { }
-  });
-});
+// Language selection uses direct links: no redirects or locale-based routing.
 
 function updateCubeDepth() {
   const half = scene.getBoundingClientRect().width / 2;
