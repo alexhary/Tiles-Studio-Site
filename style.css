@@ -204,7 +204,7 @@ body {
 }
 
 /* Minimal bilingual switch and contact footer */
-.language-switch { position: absolute; top: 12px; right: 0; display: flex; align-items: center; gap: 8px; font: 400 11px/1.4 Quicksand, Arial, sans-serif; letter-spacing: .06em; color: #777; }
+.language-switch { position: absolute; top: 12px; right: 0; z-index: 30; display: flex; align-items: center; gap: 8px; font: 400 11px/1.4 Quicksand, Arial, sans-serif; letter-spacing: .06em; color: #777; }
 .language-switch a { color: #888; text-decoration: none; transition: color .18s ease; }
 .language-switch a:hover, .language-switch a[aria-current="page"] { color: #ededed; }
 .language-switch a:focus-visible, .contact a:focus-visible { outline: 2px solid #ededed; outline-offset: 4px; }
