@@ -1,69 +1,30 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Tiles Studio — diseño y fabricación a medida de revestimientos, azulejos cerámicos, paneles 3D y pequeñas series desde Barcelona para proyectos en toda España." />
-  <title>Tiles Studio — Custom Surfaces & Objects</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#181818" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Tiles Studio — Custom Architectural Surfaces · Barcelona</title>
+  <meta name="description" content="Custom ceramic tiles and architectural surfaces. Choose English or Spanish." />
+  <link rel="alternate" hreflang="en" href="https://tiles.studio/en/" />
+  <link rel="alternate" hreflang="es" href="https://tiles.studio/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://tiles.studio/" />
   <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    (function () {
+      var language = '';
+      try { language = localStorage.getItem('tiles-studio-language') || ''; } catch (_) { }
+      if (language !== 'en' && language !== 'es') {
+        var browserLanguage = (navigator.language || 'en').toLowerCase();
+        language = /^(es|ca)(-|$)/.test(browserLanguage) ? 'es' : 'en';
+      }
+      location.replace(language + '/' + location.search + location.hash);
+    })();
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <meta http-equiv="refresh" content="0;url=en/" />
+  <style>html,body{margin:0;min-height:100%;background:#181818;color:#d2d2d2;font:14px Arial,sans-serif}main{min-height:100vh;display:grid;place-content:center;text-align:center;gap:16px}a{color:#ddd;margin:0 15px}</style>
 </head>
 <body>
-  <main class="site-shell">
-    <nav class="top-nav" aria-label="Principal">
-      <a href="#about">About</a>
-      <a href="#what">What we do</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#applications">Applications</a>
-      <a href="#process">Materials &amp; Process</a>
-      <a href="#contact">Contact</a>
-      <button class="lang" type="button" aria-label="English">🇬🇧</button>
-    </nav>
-
-    <header class="brand">
-      <div class="logo">TILES STUDIO</div>
-      <div class="tagline">NO LIMITS FOR EXPRESSION</div>
-    </header>
-
-    <section id="gallery" class="hero-cube" aria-label="Selected projects">
-      <button class="arrow arrow-left" type="button" aria-label="Previous project">
-        <img src="assets/arrow_L.svg" alt="" draggable="false" />
-      </button>
-
-      <div class="scene" id="scene">
-        <div class="turner" id="turner">
-          <div class="cube" id="cube">
-            <div class="face face-front" data-face="front"><img class="face-image" src="assets/slide-01-magenta.webp" alt="Glossy magenta sculptural tile surface" draggable="false" /></div>
-            <div class="face face-right" data-face="right"><img class="face-image" src="assets/slide-02-beige-grid.webp" alt="Glossy square ceramic tile composition" draggable="false" /></div>
-            <div class="face face-back" data-face="back"><img class="face-image" src="assets/slide-03-white-wave.webp" alt="White flowing relief wall surface" draggable="false" /></div>
-            <div class="face face-left" data-face="left"><img class="face-image" src="assets/slide-04-blue-white-wave.webp" alt="Blue and white sculptural ceramic tiles" draggable="false" /></div>
-            <div class="face face-top" data-face="top"><img class="face-image" src="assets/slide-05-red-triangles.webp" alt="Red geometric 3D ceramic tiles" draggable="false" /></div>
-            <div class="face face-bottom" data-face="bottom"><img class="face-image" src="assets/slide-06-terra.webp" alt="Terracotta relief ceramic surface" draggable="false" /></div>
-          </div>
-        </div>
-      </div>
-
-      <button class="arrow arrow-right" type="button" aria-label="Next project">
-        <img src="assets/arrow_L.svg" alt="" draggable="false" />
-      </button>
-    </section>
-
-    <section id="about" class="copy">
-      <h1>Diseño y fabricación a medida de revestimientos y superficies</h1>
-      <p>En Tiles Studio diseñamos y fabricamos azulejos cerámicos a medida, revestimientos 3D, paneles decorativos de gran formato y piezas especiales para interiores.</p>
-      <p>Desarrollamos soluciones personalizadas para hoteles, restaurantes, bares, boutiques, escaparates, retail y espacios comerciales, incluyendo revestimientos de pared, frentes de barra, recepciones, separadores de ambientes y elementos arquitectónicos decorativos.</p>
-      <p>Trabajamos desde el diseño 3D y el prototipado hasta la fabricación de moldes y la producción en pequeñas series.</p>
-      <p>Combinamos fabricación digital, CNC e impresión 3D con técnicas artesanales, utilizando cerámica, composites, resinas de bajo impacto ambiental, madera y metales.</p>
-      <p>Desde Barcelona desarrollamos piezas únicas y pequeñas series para proyectos de interiorismo, arquitectura y retail en toda España.</p>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+  <main><strong>TILES STUDIO</strong><p><a href="en/">ENGLISH</a><a href="es/">ESPAÑOL</a></p></main>
 </body>
 </html>
