@@ -3,13 +3,13 @@
   <url>
     <loc>https://tiles.studio/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://tiles.studio/en/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://tiles.studio/es/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tiles.studio/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tiles.studio/" />
   </url>
   <url>
-    <loc>https://tiles.studio/es/</loc>
+    <loc>https://tiles.studio/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://tiles.studio/en/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://tiles.studio/es/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tiles.studio/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tiles.studio/" />
   </url>
 </urlset>
