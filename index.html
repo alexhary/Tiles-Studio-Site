@@ -18,13 +18,13 @@
         var browserLanguage = (navigator.language || 'en').toLowerCase();
         language = /^(es|ca)(-|$)/.test(browserLanguage) ? 'es' : 'en';
       }
-      location.replace(language + '/' + location.search + location.hash);
+      location.replace(language + '/index.html' + location.search + location.hash);
     })();
   </script>
-  <meta http-equiv="refresh" content="0;url=en/" />
+  <meta http-equiv="refresh" content="0;url=en/index.html" />
   <style>html,body{margin:0;min-height:100%;background:#181818;color:#d2d2d2;font:14px Arial,sans-serif}main{min-height:100vh;display:grid;place-content:center;text-align:center;gap:16px}a{color:#ddd;margin:0 15px}</style>
 </head>
 <body>
-  <main><strong>TILES STUDIO</strong><p><a href="en/">ENGLISH</a><a href="es/">ESPAÑOL</a></p></main>
+  <main><strong>TILES STUDIO</strong><p><a href="en/index.html">ENGLISH</a><a href="es/index.html">ESPAÑOL</a></p></main>
 </body>
 </html>
