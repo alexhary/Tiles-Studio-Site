@@ -5,6 +5,9 @@ This archive contains the complete static website and its original images.
 ## Deployment
 Deploy the repository root as a static site to Vercel. No dependencies or build command are required.
 
+## Opening the ZIP locally
+Extract the ZIP, then double-click **index.html** in the root folder (not the es/ or en/ directory). The site redirects to the appropriate language HTML file. You can also open **es/index.html** or **en/index.html** directly. The language links work both from local files and on Vercel.
+
 ## Routes
 - `/`: chooses ES for Spanish/Catalan browser locale; EN otherwise; honours saved manual choice. Has clickable fallback links with JavaScript disabled.
 - `/en/`: full English page (indexable and shareable).
