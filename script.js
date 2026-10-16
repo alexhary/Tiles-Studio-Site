@@ -1,3 +1,5 @@
+const ASSET_BASE = document.currentScript?.getAttribute('data-assets') || 'assets/';
+
 const slides = [
   { src: 'assets/slide-01-magenta.webp', alt: 'Glossy magenta sculptural tile surface' },
   { src: 'assets/slide-02-beige-grid.webp', alt: 'Glossy square ceramic tile composition' },
@@ -10,7 +12,7 @@ const slides = [
   { src: 'assets/slide-09-lattice.webp', alt: 'Organic perforated architectural divider' },
   { src: 'assets/slide-10-gold-bubbles.webp', alt: 'Gold pebble-like luxury wall panel' },
   { src: 'assets/slide-11-white-droplets.webp', alt: 'White glossy droplet tile pattern' }
-];
+].map(slide => ({ ...slide, src: ASSET_BASE + slide.src.slice('assets/'.length) }));
 
 const scene = document.getElementById('scene');
 const turner = document.getElementById('turner');
@@ -45,9 +47,31 @@ const faceUp = {
   bottom: [0, 0, 1]
 };
 
-slides.forEach(({ src }) => {
-  const img = new Image();
-  img.src = src;
+// Load the six visible cube faces with HTML. Defer the remaining five
+// gallery images until the page has finished loading and the browser is idle.
+window.addEventListener('load', () => {
+  let cursor = 6;
+  function nextBatch(deadline) {
+    while (cursor < slides.length && (!deadline || deadline.timeRemaining() > 5)) {
+      const preload = new Image();
+      preload.decoding = 'async';
+      preload.src = slides[cursor++].src;
+      if (!deadline) break;
+    }
+    if (cursor < slides.length) schedule();
+  }
+  function schedule() {
+    if ('requestIdleCallback' in window) requestIdleCallback(nextBatch, { timeout: 3000 });
+    else setTimeout(() => nextBatch(null), 450);
+  }
+  schedule();
+}, { once: true });
+
+// Remember a manual language choice for visits to the site root.
+document.querySelectorAll('.language-switch [data-language]').forEach(link => {
+  link.addEventListener('click', () => {
+    try { localStorage.setItem('tiles-studio-language', link.dataset.language); } catch (_) { }
+  });
 });
 
 function updateCubeDepth() {
